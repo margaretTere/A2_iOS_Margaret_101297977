@@ -1,9 +1,3 @@
-//
-//  AddProductViewController.swift
-//  A2_iOS_Margaret_101297977
-//
-//  Created by Rita T on 2025-03-23.
-//
 
 import UIKit
 
@@ -35,6 +29,27 @@ class AddProductViewController: UIViewController {
     @IBAction func addProduct(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
+        if productName.text?.isEmpty ?? true {
+            showErrowMessage("Product name is required")
+            return
+        }
+        
+        if productPrice.text?.isEmpty ?? true {
+            showErrowMessage("Product price is required")
+            return
+        }
+        
+        if productProvider.text?.isEmpty ?? true {
+            showErrowMessage("Product provider is required")
+            return
+        }
+        
+        if productDescription.text?.isEmpty ?? true {
+            showErrowMessage("Product description is required")
+            return
+        }
+        
+        
         let newProduct = Product(context: appDelegate.persistentContainer.viewContext)
         newProduct.productId = Int16(products?.count ?? 0) + 1
         newProduct.productName = productName.text ?? ""
@@ -50,6 +65,16 @@ class AddProductViewController: UIViewController {
         
     }
     
+    func showErrowMessage(_ message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
+        self.present(alert, animated: true, completion: nil)
+            
+        
+        
+    }
+  
+         
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

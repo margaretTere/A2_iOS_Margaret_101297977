@@ -1,9 +1,3 @@
-//
-//  AppDelegate.swift
-//  A2_iOS_Margaret_101297977
-//
-//  Created by Rita T on 2025-03-21.
-//
 
 import UIKit
 import CoreData
