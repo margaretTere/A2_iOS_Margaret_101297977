@@ -36,7 +36,14 @@ class ViewController: UIViewController {
         //            initalDataLoad(i, context: context)
         //        }
         
+        productId.isUserInteractionEnabled = false
+        productName.isUserInteractionEnabled = false
+        productDescription.isUserInteractionEnabled = false
+        productPrice.isUserInteractionEnabled = false
+        productProvider.isUserInteractionEnabled = false
+        
         products = fetchAllProducts(context)
+        updateUI()
         
     }
         
@@ -55,13 +62,28 @@ class ViewController: UIViewController {
     }
     
     func updateUI() {
-        
+        if products.count == 0 {
+            return
+        }
+        productId.text = "\(products[currentProductIndex].productId)"
+        productName.text = products[currentProductIndex].productName
+        productDescription.text = products[currentProductIndex].productDescription
+        productPrice.text = "\(products[currentProductIndex].productPrice)"
+        productProvider.text = products[currentProductIndex].productProvider
     }
     
     @IBAction func goPrev(_ sender: UIButton) {
+        if currentProductIndex > 0 {
+            currentProductIndex -= 1
+            updateUI()
+        }
     }
     
     @IBAction func goNext(_ sender: UIButton) {
+        if currentProductIndex < totalProducts-1 {
+            currentProductIndex += 1
+            updateUI()
+        }
     }
     
     
