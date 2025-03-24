@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AddProductViewControllerDelegate {
 
     @IBOutlet weak var productId: UITextField!
     @IBOutlet weak var productName: UITextField!
@@ -45,6 +45,12 @@ class ViewController: UIViewController {
         products = fetchAllProducts(context)
         updateUI()
         
+    }
+    
+    func didAddNewProduct(_ product: Product) {
+        products.append(product)
+        totalProducts += 1
+        updateUI()
     }
         
     func fetchAllProducts(_ context: NSManagedObjectContext) -> [Product] {
@@ -105,6 +111,7 @@ class ViewController: UIViewController {
         } else if segue.identifier == "showAddProduct" {
             let addProduct = segue.destination as? AddProductViewController
             addProduct?.products = products
+            addProduct?.delegate = self
         } else if segue.identifier == "showSearch" {
             let searchProduct = segue.destination as? SearchProductViewController
             searchProduct?.products = products

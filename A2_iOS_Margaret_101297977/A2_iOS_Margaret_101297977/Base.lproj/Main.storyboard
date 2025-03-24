@@ -266,7 +266,7 @@
                     <navigationItem key="navigationItem" id="mVu-WA-0Dj"/>
                     <connections>
                         <outlet property="btnAdd" destination="Kge-xM-5Nz" id="dw2-Cb-tcg"/>
-                        <outlet property="productDescription" destination="xr7-DT-M8V" id="iny-jY-vkP"/>
+                        <outlet property="productDescription" destination="XRI-t2-A1k" id="rKZ-Ra-1YW"/>
                         <outlet property="productName" destination="guo-nt-Z52" id="rck-Md-TKW"/>
                         <outlet property="productPrice" destination="Wfp-7J-P0b" id="hBs-2O-iV1"/>
                         <outlet property="productProvider" destination="1uP-6w-e3c" id="QUQ-sU-cRI"/>

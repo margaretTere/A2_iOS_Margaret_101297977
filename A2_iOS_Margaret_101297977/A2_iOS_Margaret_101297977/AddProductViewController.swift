@@ -7,11 +7,18 @@
 
 import UIKit
 
+protocol AddProductViewControllerDelegate: AnyObject {
+    func didAddNewProduct(_ product: Product)
+}
+
+
 class AddProductViewController: UIViewController {
 
     var products: [Product]?
     
-    @IBOutlet var productDescription: UIView!
+    weak var delegate: AddProductViewControllerDelegate?
+    
+    @IBOutlet weak var productDescription: UITextField!
     @IBOutlet weak var productName: UITextField!
     @IBOutlet weak var productProvider: UITextField!
     @IBOutlet weak var productPrice: UITextField!
@@ -26,7 +33,21 @@ class AddProductViewController: UIViewController {
     
 
     @IBAction func addProduct(_ sender: Any) {
-        print("\(products![0].productDescription ?? "No products")")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let newProduct = Product(context: appDelegate.persistentContainer.viewContext)
+        newProduct.productId = Int16(products?.count ?? 0) + 1
+        newProduct.productName = productName.text ?? ""
+        newProduct.productProvider = productProvider.text ?? ""
+        newProduct.productPrice = Double(productPrice.text ?? "") ?? 0
+        newProduct.productDescription = productDescription.text
+        
+        appDelegate.saveContext()
+        
+        delegate?.didAddNewProduct(newProduct)
+        navigationController?.popViewController(animated: true)
+        
+        
     }
     
     // MARK: - Navigation
