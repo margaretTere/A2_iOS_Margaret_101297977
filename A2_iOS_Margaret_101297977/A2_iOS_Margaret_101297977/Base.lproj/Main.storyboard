@@ -106,9 +106,17 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Psf-gc-fs4">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="list.bullet.rectangle" catalog="system" id="YxE-gV-9jJ"/>
+                            <barButtonItem title="Item" image="list.bullet.rectangle" catalog="system" id="YxE-gV-9jJ">
+                                <connections>
+                                    <segue destination="436-c9-jnY" kind="show" id="g3c-TC-77b"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Item" image="magnifyingglass" catalog="system" id="Cnv-oB-Rwq"/>
-                            <barButtonItem title="Item" image="plus" catalog="system" id="N0p-Wn-evQ"/>
+                            <barButtonItem title="Item" image="plus" catalog="system" id="N0p-Wn-evQ">
+                                <connections>
+                                    <segue destination="yro-3Z-a1U" kind="show" id="Nkv-Da-8xz"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -125,6 +133,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="988.54961832061065" y="3.5211267605633805"/>
+        </scene>
+        <!--Product List View Controller-->
+        <scene sceneID="Y6s-Nu-Zph">
+            <objects>
+                <tableViewController id="436-c9-jnY" customClass="ProductListViewController" customModule="A2_iOS_Margaret_101297977" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="9rc-ZD-UOQ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" textLabel="Wjv-qt-fg9" detailTextLabel="6Vf-nb-pGG" style="IBUITableViewCellStyleSubtitle" id="es3-8v-YPU">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="es3-8v-YPU" id="0hB-ay-wCJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wjv-qt-fg9">
+                                            <rect key="frame" x="20" y="6.0000000000000009" width="25" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Vf-nb-pGG">
+                                            <rect key="frame" x="19.999999999999996" y="22.333333333333336" width="43.666666666666664" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="436-c9-jnY" id="PqF-jp-g3y"/>
+                            <outlet property="delegate" destination="436-c9-jnY" id="PPc-As-o97"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="b8m-SA-wXX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nTW-H4-VBY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-675" y="105"/>
+        </scene>
+        <!--Add Product View Controller-->
+        <scene sceneID="gQb-7D-tId">
+            <objects>
+                <viewController id="yro-3Z-a1U" customClass="AddProductViewController" customModule="A2_iOS_Margaret_101297977" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xr7-DT-M8V">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="os8-N5-w30"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mVu-WA-0Dj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mfQ-iq-8JU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="268" y="759"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1bg-zn-VbK">
@@ -151,6 +220,9 @@
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

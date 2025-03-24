@@ -98,6 +98,10 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let productList = segue.destination as? ProductListViewController
+        productList?.products = products
+    }
     
     func initalDataLoad(_ id: Int, context: NSManagedObjectContext) {
         
