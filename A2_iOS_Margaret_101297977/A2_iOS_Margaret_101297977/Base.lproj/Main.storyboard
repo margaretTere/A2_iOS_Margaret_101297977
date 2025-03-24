@@ -311,7 +311,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zVS-ne-YbJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" id="zVS-ne-YbJ">
                                         <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zVS-ne-YbJ" id="kQH-JS-s5R">
@@ -329,6 +329,7 @@
                     <connections>
                         <outlet property="btnSearch" destination="wfY-zg-j7S" id="ftb-6u-zmK"/>
                         <outlet property="searchCriteria" destination="XC2-mf-uLU" id="x7u-eF-4mf"/>
+                        <outlet property="tableView" destination="XjJ-4R-xhA" id="R8d-jI-9Zr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X01-Ia-EPP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
