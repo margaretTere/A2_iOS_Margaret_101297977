@@ -9,6 +9,11 @@ import UIKit
 
 class SearchProductViewController: UIViewController {
 
+    var products: [Product]?
+    
+    @IBOutlet weak var searchCriteria: UITextField!
+    
+    @IBOutlet weak var btnSearch: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,6 +21,9 @@ class SearchProductViewController: UIViewController {
     }
     
 
+    @IBAction func searchProducts(_ sender: UIButton) {
+        print("\(products![0].productDescription ?? "No products")")
+    }
     /*
     // MARK: - Navigation
 

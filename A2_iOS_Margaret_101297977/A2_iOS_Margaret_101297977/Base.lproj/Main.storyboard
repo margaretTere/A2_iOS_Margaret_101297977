@@ -108,17 +108,17 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="list.bullet.rectangle" catalog="system" id="YxE-gV-9jJ">
                                 <connections>
-                                    <segue destination="436-c9-jnY" kind="show" id="g3c-TC-77b"/>
+                                    <segue destination="436-c9-jnY" kind="show" identifier="showAllProducts" id="g3c-TC-77b"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="magnifyingglass" catalog="system" id="Cnv-oB-Rwq">
                                 <connections>
-                                    <segue destination="OhY-NV-o0e" kind="show" id="gTP-R7-xro"/>
+                                    <segue destination="OhY-NV-o0e" kind="show" identifier="showSearch" id="gTP-R7-xro"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="plus" catalog="system" id="N0p-Wn-evQ">
                                 <connections>
-                                    <segue destination="yro-3Z-a1U" kind="show" id="Nkv-Da-8xz"/>
+                                    <segue destination="yro-3Z-a1U" kind="show" identifier="showAddProduct" id="Nkv-Da-8xz"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -203,6 +203,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add Product"/>
+                                <connections>
+                                    <action selector="addProduct:" destination="yro-3Z-a1U" eventType="touchUpInside" id="IGj-jH-D33"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fnc-nB-04y">
                                 <rect key="frame" x="48" y="225" width="110" height="21"/>
@@ -261,6 +264,13 @@
                         <color key="backgroundColor" red="0.76642626059999996" green="0.85637368960000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="mVu-WA-0Dj"/>
+                    <connections>
+                        <outlet property="btnAdd" destination="Kge-xM-5Nz" id="dw2-Cb-tcg"/>
+                        <outlet property="productDescription" destination="xr7-DT-M8V" id="iny-jY-vkP"/>
+                        <outlet property="productName" destination="guo-nt-Z52" id="rck-Md-TKW"/>
+                        <outlet property="productPrice" destination="Wfp-7J-P0b" id="hBs-2O-iV1"/>
+                        <outlet property="productProvider" destination="1uP-6w-e3c" id="QUQ-sU-cRI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfQ-iq-8JU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -292,6 +302,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Search"/>
+                                <connections>
+                                    <action selector="searchProducts:" destination="OhY-NV-o0e" eventType="touchUpInside" id="UhH-7r-b1h"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XjJ-4R-xhA">
                                 <rect key="frame" x="16" y="216" width="361" height="573"/>
@@ -313,6 +326,10 @@
                         <color key="backgroundColor" red="0.8473890731" green="0.76893817610000004" blue="0.96611279250000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ye4-fa-QGp"/>
+                    <connections>
+                        <outlet property="btnSearch" destination="wfY-zg-j7S" id="ftb-6u-zmK"/>
+                        <outlet property="searchCriteria" destination="XC2-mf-uLU" id="x7u-eF-4mf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X01-Ia-EPP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -99,8 +99,19 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let productList = segue.destination as? ProductListViewController
-        productList?.products = products
+        if segue.identifier == "showAllProducts" {
+            let productList = segue.destination as? ProductListViewController
+            productList?.products = products
+        } else if segue.identifier == "showAddProduct" {
+            let addProduct = segue.destination as? AddProductViewController
+            addProduct?.products = products
+        } else if segue.identifier == "showSearch" {
+            let searchProduct = segue.destination as? SearchProductViewController
+            searchProduct?.products = products
+        } else{
+            fatalError( "Unknown segue identifier \(segue.identifier ?? "nil")")
+        }
+        
     }
     
     func initalDataLoad(_ id: Int, context: NSManagedObjectContext) {
