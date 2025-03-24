@@ -10,6 +10,19 @@ import CoreData
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var productId: UITextField!
+    @IBOutlet weak var productName: UITextField!
+    @IBOutlet weak var productDescription: UITextField!
+    @IBOutlet weak var productPrice: UITextField!
+    @IBOutlet weak var productProvider: UITextField!
+    @IBOutlet weak var btnPrev: UIButton!
+    @IBOutlet weak var btnNext: UIButton!
+    
+    var currentProductIndex: Int = 0
+    var products: [Product] = []
+    var totalProducts: Int = 0
+    
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
@@ -23,41 +36,34 @@ class ViewController: UIViewController {
         //            initalDataLoad(i, context: context)
         //        }
         
-        fetchAllProducts(context)
+        products = fetchAllProducts(context)
         
     }
         
-    func fetchAllProducts(_ context: NSManagedObjectContext)  {
+    func fetchAllProducts(_ context: NSManagedObjectContext) -> [Product] {
             
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
-            do {
-                let results = try context.fetch(request)
-                if results.count > 0 {
-                    for result in results as! [NSManagedObject]{
-                        if let productId = result.value(forKey: "productId") as? Int {
-                            print(productId)
-                        }
-                        if let productName = result.value(forKey: "productName") as? String {
-                            print(productName)
-                        }
-                        if let productDescription = result.value(forKey: "productDescription") as? String {
-                            print(productDescription)
-                        }
-                        if let productPrice = result.value(forKey: "productPrice") as? Double {
-                            print(productPrice)
-                        }
-                        if let productProvider = result.value(forKey: "productProvider") as? String {
-                            print(productProvider)
-                        }
-                    }
-                    
-                }
-            } catch {
-                print("Fetch failed: \(error)")
-            }
-        
-   
+        let request: NSFetchRequest<Product> = Product.fetchRequest()
+        do {
+            let products = try context.fetch(request)
+            totalProducts = products.count
+            print(products)
+            return products
+        } catch {
+            fatalError("Fetch failed: \(error)")
+        }
+      
     }
+    
+    func updateUI() {
+        
+    }
+    
+    @IBAction func goPrev(_ sender: UIButton) {
+    }
+    
+    @IBAction func goNext(_ sender: UIButton) {
+    }
+    
     
     func initalDataLoad(_ id: Int, context: NSManagedObjectContext) {
         
