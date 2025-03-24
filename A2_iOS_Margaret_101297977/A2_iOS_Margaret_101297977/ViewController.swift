@@ -70,6 +70,18 @@ class ViewController: UIViewController {
         productDescription.text = products[currentProductIndex].productDescription
         productPrice.text = "\(products[currentProductIndex].productPrice)"
         productProvider.text = products[currentProductIndex].productProvider
+        
+        if currentProductIndex == 0 {
+            btnPrev.isHidden = true
+        } else {
+            btnPrev.isHidden = false
+        }
+        
+        if currentProductIndex == totalProducts-1 {
+            btnNext.isHidden = true
+        } else {
+            btnNext.isHidden = false
+        }
     }
     
     @IBAction func goPrev(_ sender: UIButton) {
